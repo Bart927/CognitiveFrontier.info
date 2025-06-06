@@ -1,0 +1,183 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.btn {
+  @include button-base;
+  @include focus-ring;
+  position: relative;
+  overflow: hidden;
+  
+  // Размеры
+  &--sm {
+    padding: $spacing-1 $spacing-3;
+    font-size: $font-size-xs;
+    min-height: 2rem;
+  }
+  
+  &--md {
+    padding: $spacing-2 $spacing-4;
+    font-size: $font-size-sm;
+    min-height: 2.5rem;
+  }
+  
+  &--lg {
+    padding: $spacing-3 $spacing-6;
+    font-size: $font-size-base;
+    min-height: 3rem;
+  }
+  
+  // Варианты
+  &--primary {
+    background-color: $primary-color;
+    color: $white;
+    
+    &:hover:not(:disabled) {
+      background-color: darken($primary-color, 8%);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: darken($primary-color, 12%);
+    }
+  }
+  
+  &--secondary {
+    background-color: $secondary-color;
+    color: $white;
+    
+    &:hover:not(:disabled) {
+      background-color: darken($secondary-color, 8%);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: darken($secondary-color, 12%);
+    }
+  }
+  
+  &--outline {
+    background-color: transparent;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    
+    &:hover:not(:disabled) {
+      background-color: $primary-color;
+      color: $white;
+    }
+    
+    &:active:not(:disabled) {
+      background-color: darken($primary-color, 8%);
+    }
+  }
+  
+  &--ghost {
+    background-color: transparent;
+    color: $primary-color;
+    
+    &:hover:not(:disabled) {
+      background-color: rgba($primary-color, 0.1);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: rgba($primary-color, 0.2);
+    }
+  }
+  
+  &--danger {
+    background-color: $danger-color;
+    color: $white;
+    
+    &:hover:not(:disabled) {
+      background-color: darken($danger-color, 8%);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: darken($danger-color, 12%);
+    }
+  }
+  
+  // Модификаторы
+  &--full-width {
+    width: 100%;
+  }
+  
+  &--loading {
+    cursor: wait;
+    
+    .btn__content {
+      opacity: 0.7;
+    }
+  }
+  
+  &--disabled,
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  // Элементы
+  &__content {
+    @include transition(opacity);
+  }
+  
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    
+    &--left {
+      margin-right: $spacing-2;
+    }
+    
+    &--right {
+      margin-left: $spacing-2;
+    }
+  }
+  
+  &__spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__spinner-icon {
+    width: 1rem;
+    height: 1rem;
+    animation: spin 1s linear infinite;
+  }
+  
+  &__spinner-circle {
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-dasharray: 31.416;
+    stroke-dashoffset: 31.416;
+    animation: spinner-dash 2s ease-in-out infinite;
+  }
+}
+
+// Анимации
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+} 
