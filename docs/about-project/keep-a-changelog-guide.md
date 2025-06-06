@@ -270,7 +270,7 @@ git push origin v0.1.0
 name: Release
 on:
   push:
-    tags: ["v*"]
+    tags: ['v*']
 jobs:
   release:
     runs-on: ubuntu-latest

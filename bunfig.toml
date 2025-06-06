@@ -1,0 +1,21 @@
+[install]
+# Настройки установки пакетов
+cache = true
+exact = false
+production = false
+
+[install.scopes]
+# Настройки для scoped пакетов
+
+[test]
+# Настройки тестирования
+preload = ["./jest.setup.js"]
+coverage = true
+
+[run]
+# Настройки выполнения скриптов
+shell = "system"
+
+# Переменные окружения
+[env]
+NODE_ENV = "development" 
