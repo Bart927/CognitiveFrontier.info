@@ -1,0 +1,285 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Правила стилизации
+
+## Гибридная методология (BEM + Утилиты + Короткие имена)
+
+### Правила именования (обновлённые)
+
+#### Для сложных компонентов (BEM с сокращениями):
+- Блок: `.c-name` (префикс c- для компонентов) или `.component-name`
+- Элемент: `__item` (короткие имена элементов)
+- Модификатор: `--lg`, `--sm`, `--active` (сокращённые модификаторы)
+
+#### Для простых компонентов (без BEM):
+- Блок: `.card`, `.btn`, `.nav`, `.form`
+- Элемент: `.card-header`, `.btn-icon`, `.form-field`
+- Модификатор: `.card--featured`, `.btn--primary`
+
+#### Утилиты (короткие имена):
+- Лейаут: `.flex`, `.grid`, `.block`, `.inline`
+- Отступы: `.m-0`, `.m-1`, `.p-2`, `.mx-auto`
+- Позиционирование: `.rel`, `.abs`, `.fixed`
+- Состояния: `.is-active`, `.is-hidden`, `.is-loading`
+
+### Примеры
+
+#### Было (длинные BEM имена):
+```scss
+.user-profile-card {
+  &__avatar-container {
+    &__image {
+      &--large-rounded {
+        // стили
+      }
+    }
+  }
+  
+  &__content-wrapper {
+    &__user-information {
+      &__display-name {
+        // стили
+      }
+    }
+  }
+}
+```
+
+
+## Утилиты для частых задач
+
+```scss
+// Лейаут
+.flex { display: flex; }
+.flex-center { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+.flex-between { 
+  display: flex; 
+  justify-content: space-between; 
+}
+.flex-col { flex-direction: column; }
+.grid { display: grid; }
+.block { display: block; }
+.inline { display: inline; }
+.hidden { display: none; }
+
+// Отступы (spacing)
+.m-0 { margin: 0; }
+.m-1 { margin: $spacing-1; }
+.m-2 { margin: $spacing-2; }
+.m-3 { margin: $spacing-3; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.p-0 { padding: 0; }
+.p-1 { padding: $spacing-1; }
+.p-2 { padding: $spacing-2; }
+.p-3 { padding: $spacing-3; }
+
+// Позиционирование
+.rel { position: relative; }
+.abs { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+// Размеры
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.w-auto { width: auto; }
+.h-auto { height: auto; }
+.max-w-sm { max-width: 24rem; }
+.max-w-md { max-width: 28rem; }
+
+// Текст
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-lg { font-size: 1.125rem; }
+.text-sm { font-size: 0.875rem; }
+.text-bold { font-weight: bold; }
+
+// Цвета
+.text-primary { color: $primary-color; }
+.text-secondary { color: $secondary-color; }
+.bg-primary { background-color: $primary-color; }
+.bg-secondary { background-color: $secondary-color; }
+
+// Состояния
+.is-active { /* активное состояние */ }
+.is-hidden { visibility: hidden; }
+.is-loading { /* состояние загрузки */ }
+.is-disabled { 
+  opacity: 0.5; 
+  pointer-events: none; 
+}
+```
+
+## Использование переменных
+
+Всегда используй переменные из _variables.scss:
+```scss
+// Цвета
+$primary-color
+$secondary-color
+$success-color
+$danger-color
+$warning-color
+$info-color
+$light-color
+$dark-color
+
+// Отступы
+$spacing-unit
+$spacing-1 through $spacing-5
+
+// Брейкпоинты
+$breakpoint-sm
+$breakpoint-md
+$breakpoint-lg
+$breakpoint-xl
+```
+
+## Использование миксинов
+
+Доступные миксины из _mixins.scss:
+```scss
+// Флекс центрирование
+@include flex-center;
+
+// Медиа запросы
+@include responsive(sm) {
+  // стили для small
+}
+
+// Transition
+@include transition(property, duration, timing);
+
+// Базовые стили кнопок
+@include button-base;
+```
+
+## Когда использовать какой подход
+
+### BEM с короткими именами (для сложных компонентов):
+```scss
+// Когда много взаимосвязанных элементов
+.c-modal {
+  &__header { /* заголовок */ }
+  &__body { /* тело */ }
+  &__footer { /* подвал */ }
+  &--lg { /* большой размер */ }
+}
+```
+
+### Простые классы (для простых компонентов):
+```scss
+// Когда компонент простой
+.card { /* базовые стили */ }
+.card-header { /* заголовок */ }
+.card--featured { /* особый вариант */ }
+```
+
+### Утилиты (для частых стилей):
+```tsx
+// Вместо создания кастомных классов
+<div className="flex flex-center p-2 m-1">
+  <span className="text-lg text-primary">Текст</span>
+</div>
+```
+
+## Порядок свойств
+1. Позиционирование (position, top, z-index)
+2. Блочная модель (display, width, margin)
+3. Типографика (font-family, font-size)
+4. Визуальные свойства (color, background)
+5. Остальные свойства
+
+## Вложенность
+- Максимум 3 уровня вложенности
+- Используй & только для BEM модификаторов и элементов
+- Избегай сложных селекторов
+
+## Медиа запросы
+- Используй миксин @include responsive()
+- Размещай медиа запросы внутри селектора
+- Mobile First подход
+
+## Организация файлов стилей
+
+```
+├── src/ 
+│   ├── assets/                  # Ресурсы, импортируемые в код
+│   │   └── styles/              # Глобальные стили
+│   │       ├── themes/          # Системы тем (светлая/тёмная)
+│   │       │   ├── _light.scss  # Светлая тема
+│   │       │   └── _dark.scss   # Тёмная тема
+│   │       ├── utils/           # Специальные утилиты (например: анимация)
+│   │       ├── _variables.scss  # Центральный файл переменных
+│   │       ├── _spacing.scss    # Переменные отступов
+│   │       ├── _breakpoints.scss # Медиа брейкпоинты
+│   │       ├── _colors.scss     # Цветовая палитра
+│   │       ├── _typography.scss # Типографика
+│   │       ├── _mixins.scss     # SCSS миксины
+│   │       ├── _scrollbar.scss  # Стили скроллбара
+│   │       └── global.scss      # Глобальные стили
+```
+
+## Что НЕ использовать
+- !important (только в крайних случаях)
+- Инлайн стили
+- ID селекторы для стилизации
+- CSS Modules
+- Tailwind (конфликт философий)
+- Глобальные стили (кроме reset и utility классов)
+- Слишком длинные BEM имена
+
+## Примеры комбинирования подходов
+
+```tsx
+// Компонент с гибридным подходом
+<div className="c-product-card">
+  <div className="c-product-card__image">
+    <img className="w-full h-auto" src="..." />
+  </div>
+  <div className="c-product-card__content p-2">
+    <h3 className="text-lg text-bold">Название</h3>
+    <p className="text-sm text-secondary">Описание</p>
+    <div className="flex flex-between items-center">
+      <span className="text-primary">$99</span>
+      <button className="btn btn--primary">Купить</button>
+    </div>
+  </div>
+</div>
+```
+
+```scss
+// Соответствующие стили
+.c-product-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  
+  &__image {
+    aspect-ratio: 16/9;
+  }
+  
+  &__content {
+    background: white;
+  }
+}
+
+.btn {
+  @include button-base;
+  
+  &--primary {
+    background: $primary-color;
+    color: white;
+  }
+}
+```
+
+

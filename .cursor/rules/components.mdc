@@ -1,0 +1,116 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Правила работы с компонентами
+
+## Шаблон компонента
+```tsx
+interface ComponentNameProps {
+  // Описание пропсов с JSDoc
+  prop1: string;
+  prop2?: number;
+}
+
+export const ComponentName: React.FC<ComponentNameProps> = ({ prop1, prop2 }) => {
+  return (
+    <div className="component-name">
+      {/* Контент компонента */}
+    </div>
+  );
+};
+```
+
+## Шаблон стилей (BEM)
+```scss
+.component-name {
+  // Базовые стили
+
+  &__element {
+    // Стили элемента
+  }
+
+  &--modifier {
+    // Стили модификатора
+  }
+}
+```
+
+## Шаблон Storybook
+```tsx
+import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentName } from './ComponentName';
+
+const meta: Meta<typeof ComponentName> = {
+  title: 'Components/ComponentName',
+  component: ComponentName,
+  tags: ['autodocs'],
+};
+
+export default meta;
+type Story = StoryObj<typeof ComponentName>;
+
+export const Default: Story = {
+  args: {
+    prop1: 'value1',
+    prop2: 42,
+  },
+};
+```
+
+## Шаблон тестов
+```tsx
+import { render, screen } from '@testing-library/react';
+import { ComponentName } from './ComponentName';
+
+describe('ComponentName', () => {
+  it('renders correctly', () => {
+    render(<ComponentName prop1="test" />);
+    expect(screen.getByText('test')).toBeInTheDocument();
+  });
+});
+```
+
+## Правила именования
+- Компоненты: PascalCase (Button, UserProfile)
+- Файлы стилей: то же имя + .scss (Button.scss)
+- Классы BEM:
+  - Блок: kebab-case (user-profile)
+  - Элемент: __ (user-profile__avatar)
+  - Модификатор: -- (user-profile--large)
+
+## Организация файлов
+```
+ComponentName/
+├── ComponentName.tsx        # Компонент
+├── ComponentName.scss      # Стили
+├── ComponentName.stories.tsx  # Storybook
+├── ComponentName.test.tsx    # Тесты
+├── ComponentName.types.ts    # Типы
+└── index.ts                # Экспорт
+```
+
+->
+
+## Правила именования
+- Папки компонентов: kebab-case (button, user-profile)
+- Компоненты: PascalCase (Button, UserProfile)
+- Файлы стилей: то же имя + .scss (Button.scss)
+- Классы BEM:
+  - Блок: kebab-case (user-profile)
+  - Элемент: __ (user-profile__avatar)
+  - Модификатор: -- (user-profile--large)
+
+## Организация файлов
+```
+component-name/              # Папка в kebab-case
+├── ComponentName.tsx        # Компонент
+├── ComponentName.scss      # Стили
+├── ComponentName.stories.tsx  # Storybook
+├── ComponentName.test.tsx    # Тесты
+├── ComponentName.types.ts    # Типы
+└── index.ts                # Экспорт
+```
+
+
