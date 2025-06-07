@@ -37,13 +37,13 @@ $spacing-16: $spacing-unit * 16; // 64px
 
 // Типографика
 $font-family-sans:
-  'Inter',
+  var(--font-inter),
   -apple-system,
   BlinkMacSystemFont,
   'Segoe UI',
   Roboto,
   sans-serif;
-$font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+$font-family-mono: var(--font-jetbrains-mono), 'Fira Code', Consolas, monospace;
 
 $font-size-xs: 0.75rem; // 12px
 $font-size-sm: 0.875rem; // 14px
